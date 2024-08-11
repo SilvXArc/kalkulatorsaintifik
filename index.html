@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator Saintifik</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="light-mode">
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="result" readonly>
+        </div>
+        <div class="buttons">
+            <button onclick="clearDisplay()">CA</button>
+            <button onclick="deleteChar()">C</button>
+            <button onclick="convertToFraction()">a/b</button>
+            <button onclick="appendOperator('^')">^</button>
+            <button onclick="appendOperator('/')">÷</button>
+            <button onclick="appendNumber('1')">1</button>
+            <button onclick="appendNumber('2')">2</button>
+            <button onclick="appendNumber('3')">3</button>
+            <button onclick="appendOperator('×')">×</button>
+            <button onclick="appendOperator('Math.sin(')">sin</button>
+            <button onclick="appendNumber('4')">4</button>
+            <button onclick="appendNumber('5')">5</button>
+            <button onclick="appendNumber('6')">6</button>
+            <button onclick="appendOperator('-')">-</button>
+            <button onclick="appendOperator('Math.cos(')">cos</button>
+            <button onclick="appendNumber('7')">7</button>
+            <button onclick="appendNumber('8')">8</button>
+            <button onclick="appendNumber('9')">9</button>
+            <button onclick="appendOperator('+')">+</button>
+            <button onclick="appendOperator('Math.tan(')">tan</button>
+            <button onclick="appendNumber('0')">0</button>
+            <button onclick="appendDot()">.</button>
+            <button onclick="appendOperator('(')">(</button>
+            <button onclick="appendOperator(')')">)</button>
+            <button onclick="calculate()">=</button>
+            <button onclick="appendOperator('Math.sqrt(')">√</button>
+            <button onclick="appendOperator('Math.abs(')">|x|</button>
+            <button onclick="appendOperator('%')">%</button>
+            <button onclick="appendOperator('Math.PI')">π</button>
+            <button onclick="appendOperator('Math.E')">e</button>
+            <button onclick="appendOperator('factorial(')">n!</button>
+            <button onclick="appendOperator('integral(')">∫</button>
+            <button onclick="appendOperator('x')">x</button>
+            <button onclick="appendOperator('y')">y</button>
+            <button onclick="appendOperator('z')">z</button>
+        </div>
+        <div>
+            <label for="variable">Variabel (format: x=5 atau 9x=81): </label>
+            <input type="text" id="variable" onkeydown="declareVariable(event)">
+        </div>>
+        <div class="history" id="history" onclick="toggleHistoryView()"></div>
+        <div class="mode-toggle">
+            <input type="checkbox" id="mode-switch" onchange="toggleMode()">
+            <label for="mode-switch"></label>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
