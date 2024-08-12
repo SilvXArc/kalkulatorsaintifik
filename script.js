@@ -26,12 +26,16 @@ function calculate() {
         .replace(/×/g, '*')
         .replace(/÷/g, '/')
         .replace(/%/g, '/100');
+
     try {
+        // Menangani bilangan negatif dengan pangkat
+        expression = expression.replace(/(-?\d+(\.\d+)?)\s*\^/g, '($1)**');
         expression = expression.replace(/\|(.+?)\|/g, 'Math.abs($1)');
-        expression = expression.replace(/\^/g, '**'); // Mengganti ^ dengan ** untuk pangkat
+        
         for (let variable in variables) {
             expression = expression.replace(new RegExp(`\\b${variable}\\b`, 'g'), variables[variable]);
         }
+        
         let result = eval(expression);
         result = parseFloat(result.toFixed(3)); // Pembatasan angka desimal hingga 3 angka
         display.value = result;
@@ -40,6 +44,7 @@ function calculate() {
         alert('Kesalahan dalam perhitungan');
     }
 }
+
 
 // Fungsi faktorial untuk digunakan dalam ekspresi
 function factorial(n) {
